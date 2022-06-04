@@ -1,0 +1,29 @@
+.appHeader {
+    background-color: #1C1C21;
+    width: 1920px;   
+    min-height: 88px;
+    margin: 40px;
+}
+
+.header__menuWrapper {
+    padding: 16px 320px 16px 320px;   
+    display: grid;
+    grid-template-columns: 178px 197px 1fr 207px;
+    align-items: center;
+    min-height: 56px;
+}
+
+.header__elemWrapper {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    align-items: center;
+}
+
+.logo__wrapper {
+    justify-self: center;
+    align-self: center;
+}
+
+.clickable_elem {
+    cursor: pointer;
+}

@@ -1,0 +1,36 @@
+.mainWrapper {
+    margin-top: 19px;
+    margin-left: 380px;
+}
+
+.contentWrapper {
+    height: 756px;
+    width: 600px;       
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}  
+
+::-webkit-scrollbar-track {
+    background: #2F2F37;     
+}   
+
+::-webkit-scrollbar-thumb {
+    background: #8585AD; 
+}
+  
+.elements__list {
+    list-style-type: none; 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 16px;
+    row-gap: 32px;
+    column-gap: 24px;
+}
+
+.contentHeader {
+    margin-top: 40px;
+}
