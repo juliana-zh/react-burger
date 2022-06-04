@@ -23,3 +23,7 @@
     justify-self: center;
     align-self: center;
 }
+
+.clickable_elem {
+    cursor: pointer;
+}

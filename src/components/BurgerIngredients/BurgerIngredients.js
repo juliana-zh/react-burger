@@ -1,12 +1,22 @@
-import React from 'react';
+import { useState } from 'react';
 
 import PropTypes from 'prop-types';
 import styles from './BurgerIngredients.module.css';
-import { Tab, CurrencyIcon, Counter } from '@ya.praktikum/react-developer-burger-ui-components'
+import { Tab } from '@ya.praktikum/react-developer-burger-ui-components'
 import { productPropTypes } from '../../utils/data.js'
+import ProductItem from '../ProductItem/ProductItem';
 
-function BurgerIngredients(props) {
-    const [current, setCurrent] = React.useState('one');
+function BurgerIngredients({ products }) {
+    const [current, setCurrent] = useState('one');
+    const buns = products.filter(
+        (item) => item.type === 'bun'
+    )
+    const sauce = products.filter(
+        (item) => item.type === 'sauce'
+    );
+    const main = products.filter(
+        (item) => item.type === 'main'
+    );
     return (
         <div className={styles.mainWrapper}>
             <div style={{ display: 'flex' }}>
@@ -27,22 +37,8 @@ function BurgerIngredients(props) {
                     </h2>
                     <ul className={styles.elements__list}>
                         {
-                            props.products.filter(
-                                (item) => item.type === 'bun'
-                            ).map((item) => (
-                                <li className={styles.elements__item} key={item._id}>
-                                    <img className="elements__image" src={item.image} alt={item.image} />
-                                    <div className={styles.priceWrapper}>
-                                        <p className='text text_type_digits-default'>
-                                            {item.price}
-                                        </p>
-                                        <CurrencyIcon type="primary" />
-                                    </div>
-                                    <p className={`elements__name text text_type_main-small ${styles.nameProps}`}>{item.name}</p>
-                                    <div className={styles.counterWrapper}>
-                                        <Counter count={1} size="small" />
-                                    </div>
-                                </li>
+                            buns.map((item) => (
+                                <ProductItem item={item} key={item._id} />
                             ))
                         }
                     </ul>
@@ -51,19 +47,8 @@ function BurgerIngredients(props) {
                     </p>
                     <ul className={styles.elements__list}>
                         {
-                            props.products.filter(
-                                (item) => item.type === 'sauce'
-                            ).map((item) => (
-                                <li className={styles.elements__item} key={item._id}>
-                                    <img className="elements__image" src={item.image} alt={item.image} />
-                                    <div className={styles.priceWrapper}>
-                                        <p className='text text_type_digits-default'>
-                                            {item.price}
-                                        </p>
-                                        <CurrencyIcon type="primary" />
-                                    </div>
-                                    <p className={`elements__name text text_type_main-small ${styles.nameProps}`}>{item.name}</p>
-                                </li>
+                            sauce.map((item) => (
+                                <ProductItem item={item} key={item._id} />
                             ))
                         }
                     </ul>
@@ -72,19 +57,8 @@ function BurgerIngredients(props) {
                     </p>
                     <ul className={styles.elements__list}>
                         {
-                            props.products.filter(
-                                (item) => item.type === 'main'
-                            ).map((item) => (
-                                <li className={styles.elements__item} key={item._id}>
-                                    <img className="elements__image" src={item.image} alt={item.image} />
-                                    <div className={styles.priceWrapper}>
-                                        <p className='text text_type_digits-default'>
-                                            {item.price}
-                                        </p>
-                                        <CurrencyIcon type="primary" />
-                                    </div>
-                                    <p className={`elements__name text text_type_main-small ${styles.nameProps}`}>{item.name}</p>
-                                </li>
+                            main.map((item) => (
+                                <ProductItem item={item} key={item._id} />
                             ))
                         }
                     </ul>
@@ -95,7 +69,7 @@ function BurgerIngredients(props) {
 }
 
 BurgerIngredients.propTypes = {
-    products: PropTypes.arrayOf(productPropTypes.isRequired)
+    products: PropTypes.arrayOf(productPropTypes.isRequired).isRequired
 };
 
 export default BurgerIngredients; 

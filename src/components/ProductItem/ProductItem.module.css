@@ -1,0 +1,25 @@
+.elements__item {    
+    display: grid;
+    align-items: center;
+    justify-items: center   ;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, min-content);
+    position: relative;
+}
+
+.priceWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, min-content);
+    column-gap: 5px;
+    margin-bottom: 10px;
+}
+
+.nameProps {
+    text-align: center;
+}
+
+.counterWrapper {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
