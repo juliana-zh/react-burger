@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.mainPage {
+  width: 2000px;
+  min-height: 1080px;
+}
+
+.pageColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  
+  column-gap: 40px;
+}
+

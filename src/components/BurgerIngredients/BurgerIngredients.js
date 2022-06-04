@@ -1,7 +1,9 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
 import styles from './BurgerIngredients.module.css';
 import { Tab, CurrencyIcon, Counter } from '@ya.praktikum/react-developer-burger-ui-components'
+import { productPropTypes } from '../../utils/data.js'
 
 function BurgerIngredients(props) {
     const [current, setCurrent] = React.useState('one');
@@ -29,7 +31,7 @@ function BurgerIngredients(props) {
                                 (item) => item.type === 'bun'
                             ).map((item) => (
                                 <li className={styles.elements__item} key={item._id}>
-                                    <img className="elements__image" src={item.image} />
+                                    <img className="elements__image" src={item.image} alt={item.image} />
                                     <div className={styles.priceWrapper}>
                                         <p className='text text_type_digits-default'>
                                             {item.price}
@@ -53,7 +55,7 @@ function BurgerIngredients(props) {
                                 (item) => item.type === 'sauce'
                             ).map((item) => (
                                 <li className={styles.elements__item} key={item._id}>
-                                    <img className="elements__image" src={item.image} />
+                                    <img className="elements__image" src={item.image} alt={item.image} />
                                     <div className={styles.priceWrapper}>
                                         <p className='text text_type_digits-default'>
                                             {item.price}
@@ -74,7 +76,7 @@ function BurgerIngredients(props) {
                                 (item) => item.type === 'main'
                             ).map((item) => (
                                 <li className={styles.elements__item} key={item._id}>
-                                    <img className="elements__image" src={item.image} />
+                                    <img className="elements__image" src={item.image} alt={item.image} />
                                     <div className={styles.priceWrapper}>
                                         <p className='text text_type_digits-default'>
                                             {item.price}
@@ -91,5 +93,9 @@ function BurgerIngredients(props) {
         </div>
     )
 }
+
+BurgerIngredients.propTypes = {
+    products: PropTypes.arrayOf(productPropTypes.isRequired)
+};
 
 export default BurgerIngredients; 
